@@ -1,7 +1,8 @@
-import React from 'react';
+// import React,{ useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Navbar() {
+export default function Navbar({inputValue, setInputValue , color, setColor ,colorValue, setColorValue }) {
+
   return (
     <div className='main-page'>
       <div className='nav'>
@@ -11,6 +12,7 @@ export default function Navbar() {
       <div className='body'>
         <h2> Please Select a Color </h2>
         <div className="color-list">
+          <Link to="new">{inputValue}</Link>
           <Link to="/red">Red</Link>
           <Link to="/green">Green</Link>
           <Link to="/blue">Blue</Link>

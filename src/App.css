@@ -49,9 +49,10 @@ body{
 }
 
 .form-container{
-  padding-top: 4rem;
+  padding-top: 8rem;
   background-image: linear-gradient(to bottom ,rgb(184, 181, 38), rgb(0, 242, 255));
   color: white;
+  height: 100vh;
 }
 input{
   width: 250px;

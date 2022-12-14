@@ -1,29 +1,32 @@
-import { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function AddColor() {
-    const[inputValue , setInputValue] = useState();
-    const[color , setColor] = useState('');
-    const[colorValue , setColorValue] = useState('')
+export default function AddColor({inputValue, setInputValue , color, setColor ,colorValue, setColorValue}) {
+    // const[inputValue , setInputValue] = useState();
+    // const[color , setColor] = useState('');
+    // const[colorValue , setColorValue] = useState('')
 
-    const changeColor = (value) =>{
-        if (value === color){
-            return value
-        }
-        setColor(value)
+    const changeColor = (e) =>{
+        setColor(e.target.value)
     }
+// const updateColor =() =>{
+    
+//     setColorValue(color)
+// }
   return (
-    <div className='form-container'>
+ <div>
+       <div className='form-container'>
       <form action="">
         <label htmlFor="color">Enter a Color</label>
         <input type="text" onChange={(e) => setInputValue(e.target.value)} /><br />
         <label htmlFor="color">Select Color</label>
         <input type="color"  id='select-color' onChange={changeColor}/><br />
-        <button onClick={() =>setColorValue(inputValue)}>Add Color</button>
+        <button onClick={(colorValue) =>setColorValue(colorValue)}>Add Color</button>
         </form> 
         <Link to="/">Go back to Home</Link>
-        {colorValue}
     </div>
+   
+ </div>
   );
 }
 
