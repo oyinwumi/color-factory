@@ -22,24 +22,21 @@ function App() {
           setInputValue={setInputValue}
           color={color}
           setColor={setColor}
-          // colorValue={colorValue}
-          // setColorValue={setColor}
+         
         />}/>
         <Route path='/add' element={<AddColor 
         inputValue={inputValue}
         setInputValue={setInputValue}
         color={color}
         setColor={setColor}
-        // colorValue={colorValue}
-        // setColorValue={setColor}
+      
         />}/>
         <Route  path="/new" element={<NewColor 
          inputValue={inputValue}
          setInputValue={setInputValue}
          color={color}
          setColor={setColor}
-        // colorValue={colorValue}
-        // setColorValue={setColor}
+      
         />}/>
         <Route  path="/red" element={<Red/>}/>
         <Route path='/green'  element={<Green/>}/>
