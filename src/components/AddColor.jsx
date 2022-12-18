@@ -1,44 +1,33 @@
-import React, { useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import React,{ useState } from 'react';
 import { Link } from 'react-router-dom';
-// import Red from "./Red";
-// import Green from "./Green";
-// import Blue from "./Blue";
-// import NewColor from './NewColor';
+import { GetColorName } from 'hex-color-to-color-name';
+import { useNavigate } from 'react-router-dom';
+import { nanoid } from 'nanoid'
+
+//From the developer that refactor your code
+/* from ur code functionality description i observed you having both input and select values to get the color data
+is a bit irrelevant because a user might not get the exact color hex code for the name inputed which can results to bugs
+so i made some few changes which u can also add too to make it a better app */
+//feel free to reach out to me for any futher inquiries.....
+//PS.....learn more.....
 
 
+export default function AddColor({  setColor }) {
+const[inputValue,  setInputValue] = useState('');
+ const navigate = useNavigate()
 
-export default function AddColor({inputValue, setInputValue , color, setColor ,colorValue, setColorValue}) {
+  const changeColor = (e) => {
+     setColor(prevColor => [...prevColor , { value:e.target.value, colorValue:GetColorName(e.target.value) , id:nanoid() }]);
+
+  }
   
-  const[prevColor, setPrevColor] = useState([
-    // <Red/>,
-    // <Green/>,
-    // <Blue/>
-  ]);
-    const changeColor = (e) =>{
-        setColor(e.target.value)
-    }
+  function updatedColor () {
+       navigate('/')
+  }
 
-    let navigate = useNavigate();
-    const routeChange = () =>{
-      let path = `/`;
-      navigate(path)
-    }
-    const updateNewColor = () =>{
-      const colors ={
-       inputValue,
-        color,
-    };
-    
-       if(prevColor === "" )
-       return alert("select a color")
-       const addedColor =[...prevColor, colors]
-       console.log(addedColor)
-   console.log(setPrevColor(addedColor))
-       
-    
-    }
   
+
+
   return (
  <div>
        <div className='form-container'>
@@ -47,12 +36,24 @@ export default function AddColor({inputValue, setInputValue , color, setColor ,c
         <input type="text" onChange={(e) => setInputValue(e.target.value)} /><br />
         <label htmlFor="color">Select Color</label>
         <input type="color"  id='select-color' onChange={changeColor}/><br />
-        <button  onClick={() =>updateNewColor(color)}>Add Color</button>
+        <button  onClick={updatedColor}>Add Color</button>
         </form> 
         <Link to="/">Go back to Home</Link>
     </div>
    
+    {/* <div>
+       <div className='form-container'>
+      <form action="">
+        <label htmlFor="color">Enter a Color</label>
+        <input type="text" onChange={(e) => setInputValue(e.target.value)} /><br />
+        <label htmlFor="color">Select Color</label>
+        <input type="color"  id='select-color' onChange={changeColor}/><br />
+        <button onClick={updatedColor} >Add Color</button>
+        </form> 
+        <Link to="/">Go back to Home</Link>
+    </div>
+   
+ </div> */}
  </div>
   );
 }
-

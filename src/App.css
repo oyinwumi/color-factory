@@ -17,17 +17,19 @@ body{
 
 
 
-.color-list{
+.flex , .btn{
   display: flex;
   flex-direction: column;
-  padding-top: 2rem;
+  /* padding-top: 2rem; */
   font-size: 20px;
   font-weight: 600;
+  align-items: center;
 }
-.color-list a{
+.flex a , .btn{
   padding: 10px;
   cursor: pointer;
   color: rgb(207, 34, 181);
+  align-items: center;
 }
 
 .nav{
@@ -44,7 +46,7 @@ body{
   margin-top: 15px;
 }
 .body h2{
-  margin-top: 2rem;
+  margin: 2rem 0;
   font-size: 25px;
 }
 
@@ -73,6 +75,18 @@ input{
   align-items: center;
   border-radius: 6px;
   margin: 2rem ;
-
   cursor: pointer;
+}
+
+.btn {
+   border: none;
+   cursor: pointer;
+   text-decoration: underline;
+   background: none;
+  
+}
+
+.flex li {
+  list-style-type: none;
+  margin: 3px;
 }

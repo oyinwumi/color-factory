@@ -1,7 +1,9 @@
 // import React,{ useState } from 'react';
 import { Link } from 'react-router-dom';
+import Colors from './Colors';
 
-export default function Navbar({inputValue, setInputValue , color, setColor ,colorValue, setColorValue }) {
+
+export default function Navbar({ color , setId }) {
 
   return (
     <div className='main-page'>
@@ -11,13 +13,21 @@ export default function Navbar({inputValue, setInputValue , color, setColor ,col
         </div>
       <div className='body'>
         <h2> Please Select a Color </h2>
-        <div className="color-list">
-          <Link to="new">{inputValue}</Link>
-          <Link to="/red">Red</Link>
-          <Link to="/green">Green</Link>
-          <Link to="/blue">Blue</Link>
         </div>
-      </div>
+        {color.map((cols) => {
+          return (
+            <div key={cols.id} className="flex">
+              <Colors value={cols.value} colorValue={cols.colorValue}  id={cols.id}  setId={setId} />
+            </div>
+              
+          );
+        })}
+
+        <div className='flex'>
+          <li><Link to='/red'>Red</Link></li>
+          <li><Link to='/green'>Green</Link></li>
+          <li><Link to='/blue'>Blue</Link></li>
+        </div>
     </div>
   );
 }
